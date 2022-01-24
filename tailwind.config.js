@@ -16,5 +16,37 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('daisyui'),
+    ],
+    daisyui: {
+        themes: [
+            {
+                'light': { // custom theme
+                    'primary'          : '#00ccff',
+                    'primary-focus'    : '#00aaff',
+                    'primary-content'  : '#ffffff',
+                },
+                'dark': { // custom theme
+                    'primary'          : '#00ccff',
+                    'primary-focus'    : '#00aaff',
+                    // 'primary-content'  : '#ffffff',
+                },
+            },
+            'light',
+            // 'dark',
+            'black',
+            'emerald',
+            'forest',
+            'synthwave',
+            'cmyk',
+        ],
+    },
+    options: {
+        safelist: [
+            /data-theme$/,
+        ]
+    },
 };

@@ -17,6 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/set-theme/{theme_name}', function ($theme_name) {
+    if ($theme_name == 'reset') {
+        session()->forget('selectedTheme');
+        return redirect()->back();
+    }
+
+    session()->put('selectedTheme', $theme_name);
+    return redirect()->back();
+})->name('setTheme');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+/**
+ * TODO
+ * set color, follow daisy ref
+ */
